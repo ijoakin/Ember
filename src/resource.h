@@ -11,6 +11,7 @@ private:
 public:
   Resource(std::string fileName) : _fileName(fileName)
   {
+    this->Acquire();
   }
   ~Resource();
 
