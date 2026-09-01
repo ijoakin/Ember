@@ -6,4 +6,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 project(ember LANGUAGES CXX)
 
-add_executable(main ./src/main.cpp)
+add_executable(ember
+          ./src/application.cpp
+          ./src/ember.cpp 
+          ./src/main.cpp)
