@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "ember.h"
 
 class Application
 {
