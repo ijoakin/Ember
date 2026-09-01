@@ -2,6 +2,7 @@
 #include "application.h"
 
 Application::Application()
+    : _resource("testing.txt")
 {
   std::cout << "Constructor" << std::endl;
 }

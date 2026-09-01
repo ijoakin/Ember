@@ -8,5 +8,6 @@ project(ember LANGUAGES CXX)
 
 add_executable(ember
           ./src/application.cpp
+          ./src/resource.cpp
           ./src/ember.cpp 
           ./src/main.cpp)

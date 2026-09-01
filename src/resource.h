@@ -5,17 +5,16 @@
 class Resource
 {
 private:
-  std::string _fileName;
-  FILE *_myFile;
+  const std::string &_fileName;
+  FILE *_myFile = nullptr;
 
 public:
-  Resource(std::string fileName) : _fileName(fileName)
-  {
-    this->Acquire();
-  }
+  Resource(std::string fileName);
   ~Resource();
 
   void Acquire();
 
   void Release();
+
+  bool IsOpen() const;
 };
