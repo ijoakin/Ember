@@ -5,11 +5,13 @@
 class Resource
 {
 private:
-  const std::string &_fileName;
+  std::string _fileName;
+
   FILE *_myFile = nullptr;
 
 public:
-  Resource(std::string fileName);
+  Resource(const std::string &fileName);
+  Resource(Resource &&other);
   ~Resource();
 
   void Acquire();

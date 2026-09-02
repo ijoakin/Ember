@@ -2,9 +2,17 @@
 #include <string.h>
 #include "resource.h"
 
-Resource::Resource(std::string fileName) : _fileName(fileName)
+Resource::Resource(const std::string &fileName) : _fileName(fileName)
 {
   this->Acquire();
+}
+
+Resource::Resource(Resource &&other)
+{
+  _fileName = std::move(other._fileName);
+  _myFile = other._myFile;
+
+  other._myFile = nullptr;
 }
 
 void Resource::Acquire()
@@ -19,7 +27,11 @@ Resource::~Resource()
 
 void Resource::Release()
 {
-  fclose(this->_myFile);
+  if (this->_myFile != nullptr)
+  {
+    fclose(this->_myFile);
+    _myFile = nullptr;
+  }
 }
 
 bool Resource::IsOpen() const
